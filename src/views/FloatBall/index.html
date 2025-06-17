@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>悬浮球</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="float-ball" 
+      :style="{ backgroundColor: transparent, opacity: opacity }"
+      @mousedown="handleMouseDown"
+      @mouseup="handleMouseUp"
+      @contextmenu.prevent="openMenu">
+      <div class="ball-content">
+        <img src="../../assets/assistant.png" alt="助手" style="width: 48px; height: 48px;" draggable="false">
+      </div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>

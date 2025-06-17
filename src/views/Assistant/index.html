@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>员工助手</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #loading {
+            font-size: 16px;
+            color: #666;
+        }
+        #error {
+            color: red;
+            display: none;
+        }
+        #dify-chatbot-bubble-button {
+            display: none !important;
+        }
+        #dify-chatbot-bubble-window {
+            width: 100% !important;
+            height: 100% !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">正在加载员工助手...</div>
+    <div id="error">加载失败，请检查网络连接</div>
+
+    <script>
+        window.difyChatbotConfig = {
+            token: '2nJQrU3JCZ9de1LV',
+            baseUrl: 'http://8.133.247.198',
+            systemVariables: {
+                // user_id: 'YOU CAN DEFINE USER ID HERE',
+            },
+        }
+
+        // 添加加载状态处理
+        window.addEventListener('load', function() {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // 添加错误处理
+        window.addEventListener('error', function(e) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            console.error('加载失败:', e);
+        });
+    </script>
+    <script
+        src="http://8.133.247.198/embed.min.js"
+        id="2nJQrU3JCZ9de1LV"
+        defer
+        onerror="document.getElementById('loading').style.display='none'; document.getElementById('error').style.display='block';">
+    </script>
+</body>
+</html> 

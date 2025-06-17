@@ -1,0 +1,115 @@
+{
+  "name": "inmai",
+  "productName": "Inmai",
+  "version": "0.0.1",
+  "description": "一鸣ai小助手",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/inmai.git"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": {
+    "name": "一鸣有限公司",
+    "email": "2339545214@qq.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "vue": "^3.2.47",
+    "electron-updater": "^6.1.1",
+    "electron-log": "^4.4.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/maker-deb": "^6.1.1",
+    "@electron-forge/maker-dmg": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.1.1",
+    "@electron-forge/maker-squirrel": "^6.1.1",
+    "@electron-forge/maker-zip": "^6.1.1",
+    "electron": "24.1.2",
+    "electron-builder": "^26.0.12"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "win32metadata": {
+          "ProductName": "HiLoop"
+        },
+        "icon": "./inm_assistant/src/assets/app"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "inmai"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
+          "config": {
+            "format": "ULFO",
+            "icon": "./inm_assistant/src/assets/app.icns"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        }
+      ]
+    }
+  },
+  "build": {
+    "appId": "com.inmai.app",
+    "productName": "Inmai",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Inmai",
+      "menuCategory": true,
+      "displayLanguageSelector": true,
+      "perMachine": false
+    },
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    },
+    "electronVersion": "24.1.2"
+  },
+  "publish": {
+    "provider": "github",
+    "owner": "LGM-233",
+    "repo": "inmai"
+  }
+}
